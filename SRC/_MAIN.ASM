@@ -11,10 +11,10 @@ ERROR:
 		INCLUDE		"SRC/SYSTEM/SECURITY.ASM"
 START:
 		move.w	#$8000+%00000100,(VDPCTRL)
-		move.w	#$8100+%00110100,(VDPCTRL)
-		move.w	#$8200+%00110000,(VDPCTRL)
-		move.w	#$8300+%00101000,(VDPCTRL)
-		move.w	#$8400+%00000111,(VDPCTRL)
+		move.w	#$8100+%01010100,(VDPCTRL)
+		move.w	#$8200+(PLANE_A>>10),(VDPCTRL)
+		move.w	#$8300+(PLANE_W/$800),(VDPCTRL)
+		move.w	#$8400+(PLANE_B>>13),(VDPCTRL)
 		move.w	#$8500+%01111100,(VDPCTRL)
 		move.w	#$8600+%00000000,(VDPCTRL)
 		move.w	#$8700+%00000000,(VDPCTRL)
@@ -39,18 +39,32 @@ START:
 		MOVE.W	(A0)+,	(A1)
 		DBF		D0,	@LOADGFX
 		
+	COPYTILEMAP		TITLEMAP,	$8000,	31,	31
+		
 		move.l	#CRAMWRITE,	(VDPCTRL)		;	Set VDP control mode to manually write a palette to CRAM
 		move.w	#$0000,		VDPDATA			;	Palleting...
 		move.w	#$0EEE,		VDPDATA			;	Palleting...
-		move.w	#$0000,		VDPDATA			;	Palleting...
-		move.w	#$0000,		VDPDATA			;	Palleting...
-		move.w	#$0000,		VDPDATA			;	Palleting...
-		move.w	#$0000,		VDPDATA			;	Palleting...
 	LOOP:
 		bra.s	LOOP
 		
 		INCLUDE		"SRC/SYSTEM/HBLANK.ASM"
 		INCLUDE		"SRC/SYSTEM/VBLANK.ASM"
 		
+DrawTileMap:		;	SUBROUTINE
+                lea     VDPDATA,a6
+                move.l  #$800000,d4
+
+.LoopRow:                           
+                move.l  d0,4(a6)    ; VDPCTRL
+                move.w  d1,d3
+
+.LoopColumn: 
+                move.w  (a1)+,(a6)
+                dbf     d3,.LoopColumn
+                add.l   d4,d0
+                dbf     d2,.LoopRow
+                rts
+		
 	ALIGN	$18000
-FONT:	INCBIN		"ART/FONT.UNC"
+FONT:		INCBIN		"ART/FONT.UNC"
+TITLEMAP:	INCBIN		"MAP/TITLE.MAP"
