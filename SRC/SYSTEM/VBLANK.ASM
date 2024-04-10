@@ -30,6 +30,8 @@ VBLANK:
 		RTS
 		
 	.INDEX:
+		DC.W	VBL_DEFAULT-.INDEX
+		DC.W	VBL_DEFAULT-.INDEX
 		DC.W	VBL_INVALID-.INDEX
 		DC.W	VBL_INVALID-.INDEX
 		DC.W	VBL_INVALID-.INDEX
@@ -44,5 +46,44 @@ VBLANK:
 		DC.W	VBL_INVALID-.INDEX
 		DC.W	VBL_INVALID-.INDEX
 		DC.W	VBL_INVALID-.INDEX
-		DC.W	VBL_INVALID-.INDEX
-		DC.W	VBL_INVALID-.INDEX
+		
+	VBL_DEFAULT:
+		BSR.W	REFRESH_VDP_BUFFERS
+		TST.W	(TIMER).W
+		BEQ.W	@STOP
+		SUBQ.W	#1,	(TIMER).W
+	@STOP:
+		RTS
+		
+REFRESH_VDP_BUFFERS:
+		MOVE.W	#$100,	(Z80BUS).L
+		
+	@LOOP:
+		BTST	#0,	(Z80BUS).L
+		BNE.S	@LOOP
+		
+		LEA	(VDPCTRL).L,	A5
+        move.l  #$94009340,(a5)
+        move.l  #$96FD9580,(a5)
+        move.w  #$977F,(a5)
+        move.w  #$C000,(a5)
+        move.w  #$80,(vdpBuffer2).w
+        move.w  (vdpBuffer2).w,(a5)
+        lea     (VDPCTRL).l,a5
+        move.l  #$94019340,(a5)
+        move.l  #$96FC9500,(a5)
+        move.w  #$977F,(a5)
+        move.w  #$7800,(a5)
+        move.w  #$83,(vdpBuffer2).w
+        move.w  (vdpBuffer2).w,(a5)
+        lea     (VDPCTRL).l,a5
+
+loc_EDC:
+        move.l  #$940193C0,(a5)
+        move.l  #$96E69500,(a5)
+        move.w  #$977F,(a5)
+        move.w  #$7C00,(a5)
+        move.w  #$83,(vdpBuffer2).w
+        move.w  (vdpBuffer2).w,(a5)
+        move.w  #0,(Z80BUS).l
+        rts
