@@ -3,3 +3,4 @@ cd OUT
 IF NOT EXIST MAME MKDIR MAME
 cd ..
 asm68k /k /p /o ae-,c+ SRC/_MAIN.ASM, OUT/SS.BIN >OUT/SS.LOG, OUT/SS.SYM, OUT/SS.LST
+convsym OUT/SS.SYM OUT/SS.BIN -a
