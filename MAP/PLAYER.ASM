@@ -3,7 +3,7 @@
 ; ---------------------------------------------------------------------------
 Map_Sonic_internal:
 
-ptr_MS_Null:	dc.w MS_Null-Map_Sonic_internal
+ptr_MS_Null:	dc.w MS_Stand-Map_Sonic_internal
 ptr_MS_Stand:	dc.w MS_Stand-Map_Sonic_internal
 ptr_MS_Wait1:	dc.w MS_Wait1-Map_Sonic_internal
 ptr_MS_Wait2:	dc.w MS_Wait2-Map_Sonic_internal

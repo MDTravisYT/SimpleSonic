@@ -56,11 +56,11 @@ VBLANK:
 		RTS
 		
 REFRESH_VDP_BUFFERS:
-		MOVE.W	#$100,	(Z80BUS).L
-		
-	@LOOP:
-		BTST	#0,	(Z80BUS).L
-		BNE.S	@LOOP
+;		MOVE.W	#$100,	(Z80BUS).L
+;		
+;	@LOOP:
+;		BTST	#0,	(Z80BUS).L
+;		BNE.S	@LOOP
 		
 		LEA	(VDPCTRL).L,	A5
         move.l  #$94009340,(a5)

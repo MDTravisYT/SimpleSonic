@@ -2,7 +2,7 @@
 ; Uncompressed graphics	loading	array for Sonic
 ; ---------------------------------------------------------------------------
 SonicDynPLC_internal:
-		dc.w SonPLC_Null-SonicDynPLC_internal
+		dc.w SonPLC_Stand-SonicDynPLC_internal
 		dc.w SonPLC_Stand-SonicDynPLC_internal
 		dc.w SonPLC_Wait1-SonicDynPLC_internal
 		dc.w SonPLC_Wait2-SonicDynPLC_internal

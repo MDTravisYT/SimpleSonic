@@ -72,6 +72,7 @@ LOC_11264:		              ; ...
 LOC_1127E:
 		LEA		ANIM_PLAYER,	A1
 		JSR		OBJ_ANIM
+		JSR		_OBJECTDISPLAY
 		RTS
 
 		
