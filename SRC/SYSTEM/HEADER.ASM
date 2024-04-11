@@ -1,15 +1,15 @@
 		DC.L	$00FFFE00
 		DC.L	SECURITY
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
-		DC.L	ERROR
+		DC.L 	BusError		; Bus error
+		DC.L 	AddressError	; Address error (4)
+		DC.L 	IllegalInstr	; Illegal instruction
+		DC.L 	ZeroDivide		; Division by zero
+		DC.L 	ChkInstr		; CHK exception
+		DC.L 	TrapvInstr		; TRAPV exception (8)
+		DC.L 	PrivilegeViol	; Privilege violation
+		DC.L 	Trace			; TRACE exception
+		DC.L 	Line1010Emu	; Line-A emulator
+		DC.L 	Line1111Emu	; Line-F emulator (12)
 		DC.L	ERROR
 		DC.L	ERROR
 		DC.L	ERROR
