@@ -14,5 +14,11 @@ TITLE:
 		move.w	#$0000,		VDPDATA			;	Palleting...
 		move.w	#$0EEE,		VDPDATA			;	Palleting...
 		move.w	#$0060,		VDPDATA			;	Palleting...
+		
+		MOVE	#$2700,	SR
 	LOOP:
-		bra.s	LOOP
+		JSR		VSYNC
+		JSR		READJOYPADS
+		ANDI.B	#%10000000,	(JOYPADPRESS).W
+		BEQ.S	LOOP
+		BRA.W	ERROR
