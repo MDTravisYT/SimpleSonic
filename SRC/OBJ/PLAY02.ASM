@@ -82,9 +82,9 @@ PLAY02_DELETE:
 PLAYER_DYNART:
                 MOVEQ   #0,D0
                 MOVE.B  OBJ.FRAME(A0),D0
-                CMP.B   (BYTE_FFF766).W,D0
+                CMP.B   (SONICFRAME).W,D0
                 BEQ.S   @EXIT
-                MOVE.B  D0,(BYTE_FFF766).W
+                MOVE.B  D0,(SONICFRAME).W
                 LEA     (DMAP_PLAYER).L,A2
                 ADD.W   D0,D0
                 ADDA.W  (A2,D0.W),A2
