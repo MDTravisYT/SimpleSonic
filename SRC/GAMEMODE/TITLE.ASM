@@ -10,7 +10,7 @@ TITLE:
 		
 	COPYTILEMAP		TITLEMAP,	$C104,	33,	21
 			
-		MOVE.B	#$1,	(OBJSLOT01)
+		MOVE.B	#$2,	(OBJSLOT01)
 	LOOP:
 		move.l	#CRAMWRITE,	(VDPCTRL)		;	Set VDP control mode to manually write a palette to CRAM
 		move.w	#$0000,		VDPDATA			;	Palleting...

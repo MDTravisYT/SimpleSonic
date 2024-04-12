@@ -22,4 +22,4 @@ RUNOBJECTS:                             ; ...
 
 OBJECTINDEX:
 		DC.L	PLAY01
-		DC.L	PLAY01
+		DC.L	PLAY02
