@@ -1,0 +1,3 @@
+LOGO:
+		MOVE.B	#1*4,	(GAMEMODE).W
+		RTS
