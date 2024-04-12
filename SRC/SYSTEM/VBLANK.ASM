@@ -79,15 +79,15 @@ VBL_LEVEL:
 		MOVE.L  #$96FD9580,(A5)
 		MOVE.W  #$977F,(A5)
 		MOVE.W  #$C000,(A5)
-		MOVE.W  #$80,(vdpBuffer2).W
-		MOVE.W  (vdpBuffer2).W,(A5)
+		MOVE.W  #$80,(VDPBUFFER2).W
+		MOVE.W  (VDPBUFFER2).W,(A5)
 		LEA     (VDPCTRL).L,A5
 		MOVE.L  #$940193C0,(A5)
 		MOVE.L  #$96E69500,(A5)
 		MOVE.W  #$977F,(A5)
 		MOVE.W  #$7C00,(A5)
-		MOVE.W  #$83,(vdpBuffer2).W
-		MOVE.W  (vdpBuffer2).W,(A5)
+		MOVE.W  #$83,(VDPBUFFER2).W
+		MOVE.W  (VDPBUFFER2).W,(A5)
 		MOVE.W  #$8407,(A5)
 		MOVE.W  (HBLANKVDPBUFFER).W,(A5)
 		MOVE.W  (SCREENPOSY_MIRROR).W,(WORD_FFF622).W
@@ -98,8 +98,8 @@ VBL_LEVEL:
 		MOVE.W  #$7800,(A5)
 
 LOC_C40:
-		MOVE.W  #$83,(vdpBuffer2).W
-		MOVE.W  (vdpBuffer2).W,(A5)
+		MOVE.W  #$83,(VDPBUFFER2).W
+		MOVE.W  (VDPBUFFER2).W,(A5)
 		TST.B   (VBLFLAG1).W
 		BEQ.S   LOC_C7A
 		LEA     (VDPCTRL).L,A5
@@ -107,8 +107,8 @@ LOC_C40:
 		MOVE.L  #$96E49500,(A5)
 		MOVE.W  #$977F,(A5)
 		MOVE.W  #$7000,(A5)
-		MOVE.W  #$83,(vdpBuffer2).W
-		MOVE.W  (vdpBuffer2).W,(A5)
+		MOVE.W  #$83,(VDPBUFFER2).W
+		MOVE.W  (VDPBUFFER2).W,(A5)
 		MOVE.B  #0,(VBLFLAG1).W
 
 LOC_C7A:				; ...
@@ -152,15 +152,15 @@ REFRESH_VDP_BUFFERS:
         move.l  #$96FD9580,(a5)
         move.w  #$977F,(a5)
         move.w  #$C000,(a5)
-        move.w  #$80,(vdpBuffer2).w
-        move.w  (vdpBuffer2).w,(a5)
+        move.w  #$80,(VDPBUFFER2).w
+        move.w  (VDPBUFFER2).w,(a5)
         lea     (VDPCTRL).l,a5
         move.l  #$94019340,(a5)
         move.l  #$96FC9500,(a5)
         move.w  #$977F,(a5)
         move.w  #$7800,(a5)
-        move.w  #$83,(vdpBuffer2).w
-        move.w  (vdpBuffer2).w,(a5)
+        move.w  #$83,(VDPBUFFER2).w
+        move.w  (VDPBUFFER2).w,(a5)
         lea     (VDPCTRL).l,a5
 
 loc_EDC:
@@ -168,7 +168,7 @@ loc_EDC:
         move.l  #$96E69500,(a5)
         move.w  #$977F,(a5)
         move.w  #$7C00,(a5)
-        move.w  #$83,(vdpBuffer2).w
-        move.w  (vdpBuffer2).w,(a5)
+        move.w  #$83,(VDPBUFFER2).w
+        move.w  (VDPBUFFER2).w,(a5)
         move.w  #0,(Z80BUS).l
         rts
