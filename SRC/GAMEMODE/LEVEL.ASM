@@ -30,6 +30,6 @@ LEVEL:
 		BRA.S	@LOOP
 		
 TEMPWINDOW:
-	rept	5192
-		DC.W	$0002
+	rept	256
+		DC.W	$0001
 	endr

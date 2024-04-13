@@ -125,6 +125,13 @@ LOC_CA8:				; ...
 
 LOCRET_CBA:		             ; ...
 		JSR		READJOYPADS
+		
+		LEA		(OBJSLOT00),	A0
+		MOVE.W	OBJ.X(A0),	D0
+		MOVE.W	OBJ.Y(A0),	D1
+		WRITEVRAM	$CC00
+		MOVE.W	D0,	(VDPDATA)
+		
 		RTS
 		
 VBL_PALETTE:
