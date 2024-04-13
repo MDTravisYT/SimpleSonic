@@ -31,5 +31,5 @@ LEVEL:
 		
 TEMPWINDOW:
 	rept	256
-		DC.W	$0001
+		DC.W	$8001
 	endr

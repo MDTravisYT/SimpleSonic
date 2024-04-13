@@ -133,7 +133,7 @@ LOCRET_CBA:		             ; ...
 		WRITEVRAM	$CCB8
 		MOVE.W	OBJ.X(A0),	D0
 		BSR.S	@POSWRITE
-		MOVE.W	#$0001,	(VDPDATA)
+		MOVE.W	#$8001,	(VDPDATA)
 		MOVE.W	OBJ.Y(A0),	D0
 		BSR.S	@POSWRITE
 		RTS
@@ -143,24 +143,24 @@ LOCRET_CBA:		             ; ...
 		AND.W	#$F000,	D1
 		ROL.W	#8,	D1
 		ROL.B	#4,	D1
-		ADDQ.B	#2,	D1
+		ADD.W	#$8002,	D1
 		MOVE.W	D1,	(VDPDATA)	
 		
 		MOVE.W	D0,	D1
 		AND.W	#$0F00,	D1
 		ROL.W	#8,	D1
-		ADDQ.B	#2,	D1
+		ADD.W	#$8002,	D1
 		MOVE.W	D1,	(VDPDATA)	
 		
 		MOVE.W	D0,	D1
 		AND.W	#$00F0,	D1
 		ROL.B	#4,	D1
-		ADDQ.B	#2,	D1
+		ADD.W	#$8002,	D1
 		MOVE.W	D1,	(VDPDATA)
 		
 		MOVE.W	D0,	D1
 		AND.W	#$000F,	D1
-		ADDQ.B	#2,	D1	
+		ADD.W	#$8002,	D1	
 		MOVE.W	D1,	(VDPDATA)
 		RTS
 		
