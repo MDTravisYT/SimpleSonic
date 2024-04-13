@@ -126,7 +126,7 @@ LOC_CA8:				; ...
 LOCRET_CBA:		             ; ...
 		JSR		READJOYPADS
 		
-		MOVE.L	#0,	D0
+		MOVEQ	#0,	D0
 		MOVE.L	D0,	D1
 		
 		LEA		(OBJSLOT00),	A0
@@ -135,7 +135,7 @@ LOCRET_CBA:		             ; ...
 		JSR		@POSWRITE
 		MOVE.W	#$0001,	(VDPDATA)
 		MOVE.W	OBJ.Y(A0),	D0
-		JSR		@POSWRITE
+		BSR.S	@POSWRITE
 		RTS
 		
 	@POSWRITE:
@@ -143,24 +143,24 @@ LOCRET_CBA:		             ; ...
 		AND.W	#$0000F000,	D1
 		ROL.W	#8,	D1
 		ROL.B	#4,	D1
-		ADDI.B	#2,	D1
+		ADDQ.B	#2,	D1
 		MOVE.W	D1,	(VDPDATA)	
 		
 		MOVE.W	D0,	D1
 		AND.W	#$00000F00,	D1
 		ROL.W	#8,	D1
-		ADDI.B	#2,	D1
+		ADDQ.B	#2,	D1
 		MOVE.W	D1,	(VDPDATA)	
 		
 		MOVE.W	D0,	D1
 		AND.W	#$000000F0,	D1
 		ROL.B	#4,	D1
-		ADDI.B	#2,	D1
+		ADDQ.B	#2,	D1
 		MOVE.W	D1,	(VDPDATA)
 		
 		MOVE.W	D0,	D1
 		AND.W	#$0000000F,	D1
-		ADDI.B	#2,	D1	
+		ADDQ.B	#2,	D1	
 		MOVE.W	D1,	(VDPDATA)
 		RTS
 		
