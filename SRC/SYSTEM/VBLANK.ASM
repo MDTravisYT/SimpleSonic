@@ -126,11 +126,44 @@ LOC_CA8:				; ...
 LOCRET_CBA:		             ; ...
 		JSR		READJOYPADS
 		
+		MOVE.L	#0,	D0
+		MOVE.L	D0,	D1
+		MOVE.L	D0,	D2
+		MOVE.L	D0,	D3
+		MOVE.L	D0,	D4
+		MOVE.L	D0,	D5
+		MOVE.L	D0,	D6
+		MOVE.L	D0,	D7
+		
 		LEA		(OBJSLOT00),	A0
 		MOVE.W	OBJ.X(A0),	D0
-		MOVE.W	OBJ.Y(A0),	D1
+		SWAP	D0
+		ADD.W	OBJ.Y(A0),	D0
 		WRITEVRAM	$CC00
-		MOVE.W	D0,	(VDPDATA)
+		
+		MOVE.L	D0,	D1
+		AND.L	#$0000F000,	D1
+		ROL.W	#8,	D1
+		ROL.B	#4,	D1
+		ADDI.B	#2,	D1
+		MOVE.W	D1,	(VDPDATA)	
+		
+		MOVE.L	D0,	D1
+		AND.L	#$00000F00,	D1
+		ROL.W	#8,	D1
+		ADDI.B	#2,	D1
+		MOVE.W	D1,	(VDPDATA)	
+		
+		MOVE.L	D0,	D1
+		AND.L	#$000000F0,	D1
+		ROL.B	#4,	D1
+		ADDI.B	#2,	D1
+		MOVE.W	D1,	(VDPDATA)
+		
+		MOVE.L	D0,	D1
+		AND.L	#$0000000F,	D1
+		ADDI.B	#2,	D1	
+		MOVE.W	D1,	(VDPDATA)
 		
 		RTS
 		
