@@ -6,7 +6,7 @@ CLEARSCREEN:                            ; ...
                 MOVE.W  #$9780,(A5)     ; SET_HIGH_BYTE_OF_DMA_SRC_TO_$00
                                         ; ADD_$800000_TO_DMA_SRC_ADDR
                                         ; SET_VRAM_FILL_DMA_MODE
-                MOVE.L  #$40000083,(A5) ; DO_WRITE_TO_VRAM_AT_$C000_ADDR
+                MOVE.L  #$40000082,(A5) ; DO_WRITE_TO_VRAM_AT_$C000_ADDR
                                         ; DO_OPERATION_USING_DMA
                 MOVE.W  #0,(VDPDATA).L
 
@@ -22,7 +22,7 @@ CLEARSCREEN:                            ; ...
                 MOVE.W  #$9780,(A5)     ; SET_HIGH_BYTE_OF_DMA_SRC_TO_$00
                                         ; ADD_$800000_TO_DMA_SRC_ADDR
                                         ; SET_VRAM_FILL_DMA_MODE
-                MOVE.L  #$60000083,(A5) ; DO_WRITE_TO_VRAM_AT_$E000_ADDR
+                MOVE.L  #$60000082,(A5) ; DO_WRITE_TO_VRAM_AT_$E000_ADDR
                                         ; DO_OPERATION_USING_DMA
                 MOVE.W  #0,(VDPDATA).L
 
