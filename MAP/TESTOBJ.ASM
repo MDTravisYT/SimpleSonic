@@ -1,18 +1,17 @@
-MapSpr_TestObjects1:dc.w __small1-*     ; ...
-                dc.w __small2-MapSpr_TestObjects1
-                dc.w __large1-MapSpr_TestObjects1
-                dc.w __large2-MapSpr_TestObjects1
-__small1:       dc.b   1,$F0, $F,$80,  0,$F0 ; ...
-__small2:       dc.b   1,$F0, $F,$80,$10,$F0 ; ...
-__large1:       dc.b   8,$80, $F,$80,$10,$F0,$60, $F ; ...
-                dc.b $80,$10,$F0,$40, $F,$80,$10,$F0
-                dc.b $20, $F,$80,$10,$F0,  0, $F,$80
-                dc.b $10,$F0,$E0, $F,$80,$10,$F0,$C0
-                dc.b  $F,$80,$10,$F0,$A0, $F,$80,$10
-                dc.b $F0,  0
-__large2:       dc.b   8,$80, $F,$80,  0,$F0,$60, $F ; ...
-                dc.b $80,  0,$F0,$40, $F,$80,  0,$F0
-                dc.b $20, $F,$80,  0,$F0,  0, $F,$80
-                dc.b   0,$F0,$E0, $F,$80,  0,$F0,$C0
-                dc.b  $F,$80,  0,$F0,$A0, $F,$80,  0
-                dc.b $F0,  0
+Map_956c:
+Map_956c_0: 	dc.w Map_956c_A-Map_956c
+Map_956c_2: 	dc.w Map_956c_10-Map_956c
+Map_956c_4: 	dc.w Map_956c_16-Map_956c
+Map_956c_6: 	dc.w Map_956c_1C-Map_956c
+Map_956c_8: 	dc.w Map_956c_22-Map_956c
+Map_956c_A: 	dc.b $1
+	dc.b $F0, $F, $E0, $C0, $F0
+Map_956c_10: 	dc.b $1
+	dc.b $F0, $F, $E0, $D0, $F0
+Map_956c_16: 	dc.b $1
+	dc.b $F0, $F, $E0, $C0, $F0
+Map_956c_1C: 	dc.b $1
+	dc.b $F0, $F, $80, $C0, $F0
+Map_956c_22: 	dc.b $1
+	dc.b $F0, $F, $80, $C0, $F0
+	even
